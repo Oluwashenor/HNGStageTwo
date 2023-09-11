@@ -43,9 +43,9 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($name)
     {
-        $person = Person::find($id);
+        $person = Person::where('name', $name)->first();;
         if ($person == null)
             return response()->json("User not found", 404);
         return response()->json($person, 200);
@@ -54,17 +54,17 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
         $validated = $request->validate([
             'name' => 'bail|required',
             'email' => 'required',
         ]);
-        $name = $validated['name'];
-        $person = Person::where('name', $name)->first();
+        $person = Person::find($id);
         if ($person == null)
             return response()->json("User not found", 404);
         $person->email = $validated['email'];
+        $person->name = $validated['name'];
         $person->save();
         return response()->json($person, 200);
     }
@@ -83,6 +83,8 @@ class PersonController extends Controller
     public function destroy($id)
     {
         $person = Person::find($id);
+        if (!$person)
+            return response()->json("User not found", 404);
         $person->delete();
         return response()->json("User Deleted Successfully", 200);
     }

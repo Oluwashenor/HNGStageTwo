@@ -16,16 +16,16 @@ The **People** table is a fundamental part of our project, and it allows us to m
 
 | S/N | Event(Description) | Request                                 | Action |
 | --- | ------------------ | --------------------------------------- | ------ |
-| 1   | Create Person      | http://localhost:8000/api/person/create | POST   |
-| 2   | Get Person         | http://localhost:8000/api/person/Eba    | GET    |
-| 3   | Update Person      | http://localhost:8000/api/person/Amala  | PUT    |
-| 4   | Delete Person      | http://localhost:8000/api/person/Amala  | DELETE |
+| 1   | Create Person      | http://172.104.112.98:8080/api/person/create | POST   |
+| 2   | Get Person         | http://172.104.112.98:8080/api/person/Eba    | GET    |
+| 3   | Update Person      | http://172.104.112.98:8080/api/person/Amala  | PUT    |
+| 4   | Delete Person      | http://172.104.112.98:8080/api/person/Amala  | DELETE |
 
 ## Request Response
 
 ### Create a new Person
 
-*URL* : http://localhost:8000/api/person/create  
+*URL* : http://172.104.112.98:8080/api/person/create  
 *Method* : Post  
 *JSON Body*: 
 ```
@@ -46,7 +46,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 ```
 
 ### Get a Person
-*URL*: http://localhost:8000/api/person/Adesina  
+*URL*: http://172.104.112.98:8080/api/person/Adesina  
 *Method* : Get  
 *API Response* :
 ```
@@ -60,7 +60,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 ```
 
 ### Update a Person
-*URL*: http://localhost:8000/api/person/1 
+*URL*: http://172.104.112.98:8080/api/person/1 
 *Method* : PUT  
 *JSON Body*: 
 ```
@@ -81,7 +81,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 ```
 
 ### Delete a Person
-*URL*: http://localhost:8000/api/person/1  
+*URL*: http://172.104.112.98:8080/api/person/1  
 *Method* : DELETE  
 *API Response* :
 ```

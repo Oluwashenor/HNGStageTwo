@@ -21,9 +21,21 @@ class PersonController extends Controller
     public function create(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'bail|required',
+            'name' => 'required',
             'email' => 'required|email',
         ]);
+
+        $emailExist = Person::where('email', $validated['email'])->exists();
+        $nameExist = Person::where('name', $validated['name'])->exists();
+
+        if ($emailExist) {
+            return response()->json(['error' => 'Email Already Exist.'], 422);
+        }
+
+        if ($nameExist) {
+            return response()->json(['error' => 'Name Already Exist.'], 422);
+        }
+
         try {
             $person = Person::create($validated);
             return response()->json($person, 201);
@@ -57,14 +69,20 @@ class PersonController extends Controller
     public function edit(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'bail|required',
-            'email' => 'required',
+            'name' => '',
+            'email' => '',
         ]);
         $person = Person::find($id);
         if ($person == null)
             return response()->json("User not found", 404);
-        $person->email = $validated['email'];
-        $person->name = $validated['name'];
+        if ($validated['email']) {
+            $emailExist = Person::where('email', $validated['email'])->exists();
+
+            $person->email = $validated['email'];
+        }
+        if ($validated['name']) {
+            $person->name = $validated['name'];
+        }
         $person->save();
         return response()->json($person, 200);
     }

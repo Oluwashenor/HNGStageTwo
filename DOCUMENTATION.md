@@ -14,8 +14,8 @@ The **People** table is a fundamental part of our project, and it allows us to m
 
 ## Request
 
-| S/N | Event(Description) | Request                                 | Action |
-| --- | ------------------ | --------------------------------------- | ------ |
+| S/N | Event(Description) | Request                                      | Action |
+| --- | ------------------ | -------------------------------------------- | ------ |
 | 1   | Create Person      | http://172.104.112.98:8080/api/person/create | POST   |
 | 2   | Get Person         | http://172.104.112.98:8080/api/person/Eba    | GET    |
 | 3   | Update Person      | http://172.104.112.98:8080/api/person/Amala  | PUT    |

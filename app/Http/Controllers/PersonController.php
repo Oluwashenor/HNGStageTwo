@@ -76,8 +76,6 @@ class PersonController extends Controller
         if ($person == null)
             return response()->json("User not found", 404);
         if ($validated['email']) {
-            $emailExist = Person::where('email', $validated['email'])->exists();
-
             $person->email = $validated['email'];
         }
         if ($validated['name']) {

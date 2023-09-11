@@ -12,6 +12,17 @@ Welcome to the **HNG Stage Two** project! In this project, we are using a databa
 
 The **People** table is a fundamental part of our project, and it allows us to manage and store information about individuals efficiently.
 
+
+## Setup Instructions
+- clone project from here https://github.com/Oluwashenor/HNGStageTwo/
+- generate your .env file from the .env.example template
+- set up your db connection in the .env file
+- navigate into project and run "composer install"
+- run "php artisan migrate:fresh" to migrate
+- run "php artisan serve"
+- viola. your project is ready for testing and implementation.
+- you can also import the postman collection from this project root directory its called    "HNGStageTwo.zip" for v2.1 or "HNG Stage two.postman_collection.json" for v2.
+
 ## Request
 
 | S/N | Event(Description) | Request                                       | Action |

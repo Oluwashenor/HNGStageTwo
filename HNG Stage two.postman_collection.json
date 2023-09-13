@@ -13,14 +13,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Mark Essien\",\r\n  \"email\": \"mark@gmail.com\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Adesina\",\r\n  \"email\": \"adeshiname@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/person/create"
+				"url": "http://172.104.112.98:8080/api/person"
 			},
 			"response": []
 		},

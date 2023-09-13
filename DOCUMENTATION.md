@@ -21,7 +21,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 - run "php artisan migrate:fresh" to migrate
 - run "php artisan serve"
 - viola. your project is ready for testing and implementation.
-- you can also import the postman collection from this project root directory its called    "HNGStageTwo.zip" for v2.1 or "HNG Stage two.postman_collection.json" for v2.
+- you can also import the postman collection from this project root directory its called "HNG Stage two.postman_collection.json" for v2.
 
 ## Request
 

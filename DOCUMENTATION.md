@@ -25,18 +25,18 @@ The **People** table is a fundamental part of our project, and it allows us to m
 
 ## Request
 
-| S/N | Event(Description) | Request                                       | Action |
-| --- | ------------------ | --------------------------------------------- | ------ |
-| 1   | Create Person      | http://172.104.112.98:8080/api/person         | POST   |
-| 2   | Get Person         | http://172.104.112.98:8080/api/person/Adesina | GET    |
-| 3   | Update Person      | http://172.104.112.98:8080/api/person/1       | PUT    |
-| 4   | Delete Person      | http://172.104.112.98:8080/api/person/1       | DELETE |
+| S/N | Event(Description) | Request                                  | Action |
+| --- | ------------------ | ---------------------------------------- | ------ |
+| 1   | Create Person      | http://172.104.112.98:8080/api           | POST   |
+| 2   | Get Person         | http://172.104.112.98:8080/api/{user_id} | GET    |
+| 3   | Update Person      | http://172.104.112.98:8080/api/{user_id} | PUT    |
+| 4   | Delete Person      | http://172.104.112.98:8080/api/{user_id} | DELETE |
 
 ## Request Response
 
 ### Create a new Person
 
-*URL* : http://172.104.112.98:8080/api/person  
+*URL* : http://172.104.112.98:8080/api/  
 *Method* : Post  
 *JSON Body*: 
 ```
@@ -57,7 +57,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 ```
 
 ### Get a Person
-*URL*: http://172.104.112.98:8080/api/person/Adesina  
+*URL*: http://172.104.112.98:8080/api/{user_id}  
 *Method* : Get  
 *API Response* :
 ```
@@ -71,7 +71,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 ```
 
 ### Update a Person
-*URL*: http://172.104.112.98:8080/api/person/1 
+*URL*: http://172.104.112.98:8080/api/{user_id}
 *Method* : PUT  
 *JSON Body*: 
 ```
@@ -92,7 +92,7 @@ The **People** table is a fundamental part of our project, and it allows us to m
 ```
 
 ### Delete a Person
-*URL*: http://172.104.112.98:8080/api/person/1  
+*URL*: http://172.104.112.98:8080/api/{user_id}
 *Method* : DELETE  
 *API Response* :
 ```

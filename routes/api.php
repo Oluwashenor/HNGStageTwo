@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-Route::post('/person', [PersonController::class, 'create']);
-Route::get('/person/{name}', [PersonController::class, 'show']);
-Route::put('/person/{id}', [PersonController::class, 'edit']);
-Route::delete('/person/{id}', [PersonController::class, 'destroy']);
+Route::post('/', [PersonController::class, 'create']);
+Route::get('/{id}', [PersonController::class, 'show']);
+Route::put('/{id}', [PersonController::class, 'edit']);
+Route::delete('/{id}', [PersonController::class, 'destroy']);

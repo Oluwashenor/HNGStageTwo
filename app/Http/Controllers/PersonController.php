@@ -55,9 +55,9 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($name)
+    public function show($id)
     {
-        $person = Person::where('name', $name)->first();;
+        $person = Person::find($id);
         if ($person == null)
             return response()->json("User not found", 404);
         return response()->json($person, 200);

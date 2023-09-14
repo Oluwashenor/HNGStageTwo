@@ -20,7 +20,7 @@
 						}
 					}
 				},
-				"url": "http://172.104.112.98:8080/api/person"
+				"url": "http://172.104.112.98:8080/api"
 			},
 			"response": []
 		},
@@ -29,7 +29,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8000/api/person/Mark Essien"
+				"url": "http://172.104.112.98:8080/api/1"
 			},
 			"response": []
 		},
@@ -40,14 +40,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Adesina Adebayo\",\r\n  \"email\": \"adeshiname2@gmail.com\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Adesin\",\r\n  \"email\": \"adeshiname@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:8000/api/person/Adesina Adebayo"
+				"url": "http://172.104.112.98:8080/api/2"
 			},
 			"response": []
 		},
@@ -56,7 +56,7 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:8000/api/person/Mark Essien"
+				"url": "http://172.104.112.98:8080/api/2"
 			},
 			"response": []
 		}

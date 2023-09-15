@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use stdClass;
 
 class PersonController extends Controller
 {
@@ -29,16 +30,29 @@ class PersonController extends Controller
         $nameExist = Person::where('name', $validated['name'])->exists();
 
         if ($emailExist) {
-            return response()->json(['error' => 'Email Already Exist.'], 422);
+            $response = [
+                'message' => 'Email Exists',
+                'status' => 422
+            ];
+            return response()->json($response, 422);
         }
 
         if ($nameExist) {
-            return response()->json(['error' => 'Name Already Exist.'], 422);
+            $response = [
+                'message' => 'Name Exists',
+                'status' => 422
+            ];
+            return response()->json($response, 422);
         }
 
         try {
             $person = Person::create($validated);
-            return response()->json($person, 201);
+            $response = [
+                'status' => 201,
+                'data' => $person,
+                'message' => 'User Created Successfully',
+            ];
+            return response()->json($response, 201);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong.'], 500);
         }
@@ -58,23 +72,45 @@ class PersonController extends Controller
     public function show($id)
     {
         $person = Person::find($id);
-        if ($person == null)
-            return response()->json("User not found", 404);
-        return response()->json($person, 200);
+        if ($person == null) {
+            $response = [
+                'message' => 'User not found',
+                'status' => 404
+            ];
+            return response()->json($response, 404);
+        }
+        $response = [
+            'status' => 200,
+            'data' => $person,
+            'message' => 'User Retreived',
+        ];
+        return response()->json($response);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $parameter)
     {
+        if (!$parameter) {
+            return response()->json(['message' => 'Invalid input. Provide either $id or $name.'], 400);
+        }
         $validated = $request->validate([
             'name' => '',
             'email' => '',
         ]);
-        $person = Person::find($id);
-        if ($person == null)
-            return response()->json("User not found", 404);
+        if (is_numeric($parameter)) {
+            $person = Person::find($parameter);
+        } else {
+            $person = Person::where('name', $parameter)->first();
+        }
+        if ($person == null) {
+            $response = [
+                'message' => 'User not found',
+                'status' => 404
+            ];
+            return response()->json($response, 404);
+        }
         if ($validated['email']) {
             $person->email = $validated['email'];
         }
@@ -82,7 +118,12 @@ class PersonController extends Controller
             $person->name = $validated['name'];
         }
         $person->save();
-        return response()->json($person, 200);
+        $response = [
+            'status' => 200,
+            'data' => $person,
+            'message' => 'User Updated Successfully',
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -100,8 +141,18 @@ class PersonController extends Controller
     {
         $person = Person::find($id);
         if (!$person)
-            return response()->json("User not found", 404);
+            if ($person == null) {
+                $response = [
+                    'message' => 'User not found',
+                    'status' => 404
+                ];
+                return response()->json($response, 404);
+            }
         $person->delete();
-        return response()->json("User Deleted Successfully", 200);
+        $response = [
+            'status' => 200,
+            'message' => 'User Deleted successfully',
+        ];
+        return response()->json($response, 200);
     }
 }

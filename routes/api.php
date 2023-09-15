@@ -7,5 +7,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/', [PersonController::class, 'create']);
 Route::get('/{id}', [PersonController::class, 'show']);
-Route::put('/{id}', [PersonController::class, 'edit']);
+Route::put('/{parameter}', [PersonController::class, 'edit']);
 Route::delete('/{id}', [PersonController::class, 'destroy']);

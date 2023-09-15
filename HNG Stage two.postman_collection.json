@@ -52,6 +52,24 @@
 			"response": []
 		},
 		{
+			"name": "Update Person Name",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Adesin\",\r\n  \"email\": \"adeshiname@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://172.104.112.98:8080/api/Adesina"
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Person",
 			"request": {
 				"method": "DELETE",

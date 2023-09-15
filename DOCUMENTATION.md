@@ -30,7 +30,8 @@ The **People** table is a fundamental part of our project, and it allows us to m
 | 1   | Create Person      | http://172.104.112.98:8080/api           | POST   |
 | 2   | Get Person         | http://172.104.112.98:8080/api/{user_id} | GET    |
 | 3   | Update Person      | http://172.104.112.98:8080/api/{user_id} | PUT    |
-| 4   | Delete Person      | http://172.104.112.98:8080/api/{user_id} | DELETE |
+| 4   | Update Person      | http://172.104.112.98:8080/api/{name}    | PUT    |
+| 5   | Delete Person      | http://172.104.112.98:8080/api/{user_id} | DELETE |
 
 ## Request Response
 
@@ -48,11 +49,15 @@ The **People** table is a fundamental part of our project, and it allows us to m
 *API Response*
 ```
 {
-    "name": "Adesina",
-    "email": "adeshiname@gmail.com",
-    "updated_at": "2023-09-11T08:42:46.000000Z",
-    "created_at": "2023-09-11T08:42:46.000000Z",
-    "id": 1
+  "status": 201,
+  "data": {
+    "name": "Ades",
+    "email": "adeshina@gmail.com",
+    "updated_at": "2023-09-15T10:10:34.000000Z",
+    "created_at": "2023-09-15T10:10:34.000000Z",
+    "id": 24
+  },
+  "message": "User Created Successfully"
 }
 ```
 
@@ -62,16 +67,21 @@ The **People** table is a fundamental part of our project, and it allows us to m
 *API Response* :
 ```
 {
-    "id": 1,
-    "name": "Adesina",
-    "email": "adeshiname@gmail.com",
-    "created_at": "2023-09-11T08:42:46.000000Z",
-    "updated_at": "2023-09-11T08:42:46.000000Z"
+  "status": 200,
+  "data": {
+    "id": 15,
+    "name": "Eba10",
+    "email": "eba10@gmail.com",
+    "created_at": "2023-09-11T12:51:42.000000Z",
+    "updated_at": "2023-09-11T12:51:42.000000Z"
+  },
+  "message": "User Retreived"
 }
 ```
 
 ### Update a Person
 *URL*: http://172.104.112.98:8080/api/{user_id}
+*URL*: http://172.104.112.98:8080/api/{name}
 *Method* : PUT  
 *JSON Body*: 
 ```
@@ -83,11 +93,15 @@ The **People** table is a fundamental part of our project, and it allows us to m
 *API Response* :
 ```
 {
-    "id": 1,
-    "name": "Ade",
-    "email": "adeshiname2@gmail.com",
-    "created_at": "2023-09-11T08:42:46.000000Z",
-    "updated_at": "2023-09-11T08:43:45.000000Z"
+  "status": 200,
+  "data": {
+    "id": 15,
+    "name": "UserA",
+    "email": "usera@gmail.com",
+    "created_at": "2023-09-11T12:51:42.000000Z",
+    "updated_at": "2023-09-15T10:12:01.000000Z"
+  },
+  "message": "User Updated Successfully"
 }
 ```
 
@@ -96,5 +110,8 @@ The **People** table is a fundamental part of our project, and it allows us to m
 *Method* : DELETE  
 *API Response* :
 ```
-"User Deleted Successfully"
+{
+  "status": 200,
+  "message": "User Deleted successfully"
+}
 ```
